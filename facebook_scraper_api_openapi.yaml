@@ -12,7 +12,6 @@ servers:
   description: RapidAPI Production Server
 security:
 - RapidAPIKey: []
-- RapidAPIHost: []
 components:
   securitySchemes:
     RapidAPIKey:
@@ -20,11 +19,6 @@ components:
       in: header
       name: x-rapidapi-key
       description: Your RapidAPI subscription key
-    RapidAPIHost:
-      type: apiKey
-      in: header
-      name: x-rapidapi-host
-      description: 'API host: facebook-scraper-api4.p.rapidapi.com'
 tags:
 - name: Facebook Pages Details/Posts
 - name: Facebook Groups Details/Posts

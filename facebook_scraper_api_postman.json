@@ -1,0 +1,1808 @@
+{
+  "info": {
+    "name": "Facebook Scraper API",
+    "description": "Unlock Facebook data effortlessly with our powerful scraping tools. Extract page names, URLs, contact info, likes, followers, posts, comments, Marketplace listings, and meta ads metrics. Perfect for market research, trend analysis, and optimizing marketing strategies.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-rapidapi-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{rapidapi_key}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://facebook-scraper-api4.p.rapidapi.com"
+    },
+    {
+      "key": "rapidapi_key",
+      "value": "YOUR_RAPIDAPI_KEY_HERE"
+    },
+    {
+      "key": "rapidapi_host",
+      "value": "facebook-scraper-api4.p.rapidapi.com"
+    }
+  ],
+  "item": [
+    {
+      "name": "Facebook Pages Details/Posts",
+      "item": [
+        {
+          "name": "Get Facebook Page ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_page_id?link=https://www.facebook.com/MazdaItalia",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_page_id"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/MazdaItalia",
+                  "description": "(Required) Facebook Page URL",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get the unique ID of any Facebook Page"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Page Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_pages_details_from_link",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_pages_details_from_link"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/EngenSA",
+                  "description": "(Optional) Facebook Page URL",
+                  "disabled": true
+                },
+                {
+                  "key": "profile_id",
+                  "value": "",
+                  "description": "(Optional) Facebook profile ID. Used only if link is not provided.",
+                  "disabled": true
+                },
+                {
+                  "key": "exact_followers_count",
+                  "value": "true",
+                  "description": "(Optional) Retrieve exact follower count (costs 5 credits). Works only with public pages.",
+                  "disabled": true
+                },
+                {
+                  "key": "show_verified_badge",
+                  "value": "false",
+                  "description": "(Optional) Show verified badge status",
+                  "disabled": true
+                },
+                {
+                  "key": "proxy_country",
+                  "value": "",
+                  "description": "(Optional) Proxy country code",
+                  "disabled": true
+                },
+                {
+                  "key": "page_section",
+                  "value": "",
+                  "description": "(Optional) Page section to scrape: default (main page) or about (About section)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Extract essential data from Facebook pages including Ad Page ID, Address, Bio, Business Hours, Category, Email, Followers, Likes, Phone, Rating, and more."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Pages Posts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_page_posts_details_from_id?profile_id=100064606995009",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_page_posts_details_from_id"
+              ],
+              "query": [
+                {
+                  "key": "profile_id",
+                  "value": "100064606995009",
+                  "description": "(Required) Facebook Page profile ID",
+                  "disabled": false
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor from previous response",
+                  "disabled": true
+                },
+                {
+                  "key": "after_time",
+                  "value": "",
+                  "description": "(Optional) Filter posts after this date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "before_time",
+                  "value": "",
+                  "description": "(Optional) Filter posts before this date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "timezone",
+                  "value": "UTC",
+                  "description": "(Optional) Timezone for date filtering",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "",
+                  "description": "(Optional) Comma-separated keys to filter the response. Supports dot notation.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get the latest Facebook Page posts (up to 3 posts per request). Use end_cursor to retrieve more posts."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Page Videos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_page_videos_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_page_videos_details"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/mancity",
+                  "description": "(Optional) Facebook Page URL",
+                  "disabled": true
+                },
+                {
+                  "key": "profile_id",
+                  "value": "",
+                  "description": "(Optional) Facebook profile ID. Used only if link is not provided.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get the Facebook Page Videos (up to 6 videos per request). Use end_cursor to retrieve more videos."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Page Reels",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_reels_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_reels_details"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/mancity",
+                  "description": "(Optional) Facebook Page URL",
+                  "disabled": true
+                },
+                {
+                  "key": "profile_id",
+                  "value": "",
+                  "description": "(Optional) Facebook profile ID. Used only if link is not provided.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor for subsequent reels",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get the latest Facebook Page Reels (up to 10 reels per request). Use end_cursor to retrieve more reels."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Facebook Groups Details/Posts",
+      "item": [
+        {
+          "name": "Get Facebook Group ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_group_id?link=https://www.facebook.com/groups/gieldagryplanszowe",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_group_id"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/groups/gieldagryplanszowe",
+                  "description": "(Required) Facebook Group URL",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Get the unique ID of any Facebook Group"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Group Metadata Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_group_metadata_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_group_metadata_details"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/groups/gieldagryplanszowe",
+                  "description": "(Optional) Facebook Group URL",
+                  "disabled": true
+                },
+                {
+                  "key": "group_id",
+                  "value": "",
+                  "description": "(Optional) Facebook Group ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get group metadata details (name, id, url, image)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Group Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_group_details_from_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_group_details_from_id"
+              ],
+              "query": [
+                {
+                  "key": "group_id",
+                  "value": "",
+                  "description": "(Required) Facebook Group ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Extract key data from Facebook groups including Total Members, New Members, Creation Date, Description, Group ID, Rules, Member Activity, and more."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Groups Posts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_group_posts_details_from_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_group_posts_details_from_id"
+              ],
+              "query": [
+                {
+                  "key": "group_id",
+                  "value": "",
+                  "description": "(Required) Facebook Group ID",
+                  "disabled": false
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get the latest Facebook Groups posts (up to 3 posts per request). Use end_cursor to retrieve more posts."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Group Videos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_group_videos_details_from_id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_group_videos_details_from_id"
+              ],
+              "query": [
+                {
+                  "key": "group_id",
+                  "value": "187988788687356",
+                  "description": "(Optional) Facebook Group ID",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get the Facebook Group Videos (up to 6 videos per request). Use end_cursor to retrieve more videos."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Facebook Posts Details",
+      "item": [
+        {
+          "name": "Get Facebook Post ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_post_id?link=https://www.facebook.com/MotoGP/posts/pfbid022yvGiAwge9fFDTNHWFb9w977aPgJaXDS6k11jwG5HJqNmCaizBAGmFVvvAiQ3Gy8l",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_post_id"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/MotoGP/posts/pfbid022yvGiAwge9fFDTNHWFb9w977aPgJaXDS6k11jwG5HJqNmCaizBAGmFVvvAiQ3Gy8l",
+                  "description": "(Required) Facebook Post URL",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Extract the post ID from the Facebook URL"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Post Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_post_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_post_details"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/MotoGP/posts/pfbid022yvGiAwge9fFDTNHWFb9w977aPgJaXDS6k11jwG5HJqNmCaizBAGmFVvvAiQ3Gy8l",
+                  "description": "(Optional) Facebook Post URL",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves details of a Facebook post based on the provided link."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Posts Comments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_post_comments_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_post_comments_details"
+              ],
+              "query": [
+                {
+                  "key": "link",
+                  "value": "https://www.facebook.com/reel/1884897151992610/",
+                  "description": "(Optional) Facebook Post/Reel URL",
+                  "disabled": true
+                },
+                {
+                  "key": "post_id",
+                  "value": "",
+                  "description": "(Optional) Facebook Post ID. Used only if link is not provided.",
+                  "disabled": true
+                },
+                {
+                  "key": "include_reply_info",
+                  "value": "",
+                  "description": "(Optional) When true, includes comment_feedback_id and expansion_token for fetching replies.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get the details of comments on Facebook posts (up to 10 comments per post). Use end_cursor to retrieve additional comments."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Posts Comment Replies",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_post_comment_replies",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_post_comment_replies"
+              ],
+              "query": [
+                {
+                  "key": "comment_feedback_id",
+                  "value": "",
+                  "description": "(Required) Feedback ID of the parent comment.",
+                  "disabled": false
+                },
+                {
+                  "key": "expansion_token",
+                  "value": "",
+                  "description": "(Required) Pagination token for loading replies.",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Fetches replies to a specific comment. Requires comment_feedback_id and expansion_token from the comments endpoint with include_reply_info=true."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Post Attachment Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_post_attachement_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_post_attachement_details"
+              ],
+              "query": [
+                {
+                  "key": "post_id",
+                  "value": "1127651948717271",
+                  "description": "(Optional) Facebook Post ID. Costs 5 credits. Works only with public pages.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves details about attachments (images, videos, links) and all reactions associated with a Facebook post."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Facebook Video Post Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_video_post_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_video_post_details"
+              ],
+              "query": [
+                {
+                  "key": "video_id",
+                  "value": "561667050148506",
+                  "description": "(Optional) Facebook Video ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves details of a Facebook video post including title, description, duration, view count, and more."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Facebook Search",
+      "item": [
+        {
+          "name": "Fetch Search Pages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_pages?query=cars",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_pages"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "cars",
+                  "description": "(Required) Search query",
+                  "disabled": false
+                },
+                {
+                  "key": "location_uid",
+                  "value": "",
+                  "description": "(Optional) Location UID for filtering",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves information about Facebook pages based on a search query and optional location."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search People",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_people?query=Michael",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_people"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "Michael",
+                  "description": "(Required) Search query",
+                  "disabled": false
+                },
+                {
+                  "key": "location_uid",
+                  "value": "",
+                  "description": "(Optional) Location UID for filtering",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves information about Facebook People based on a search query and optional location."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search Locations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_locations?query=Paris",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_locations"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "Paris",
+                  "description": "(Required) Search query",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Retrieves information about Facebook locations based on a search query."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search Posts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_posts?query=amsterdam",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_posts"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "amsterdam",
+                  "description": "(Required) Search query",
+                  "disabled": false
+                },
+                {
+                  "key": "location_uid",
+                  "value": "",
+                  "description": "(Optional) Location UID for filtering",
+                  "disabled": true
+                },
+                {
+                  "key": "start_time",
+                  "value": "",
+                  "description": "(Optional) Filter posts after this date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_time",
+                  "value": "",
+                  "description": "(Optional) Filter posts before this date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "recent_posts",
+                  "value": "",
+                  "description": "(Optional) Show only recent posts",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves information about Facebook Posts based on a search query with optional location and time filters."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search Videos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/search_facebook_watch_videos?query=dog playing with cats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "search_facebook_watch_videos"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "dog playing with cats",
+                  "description": "(Required) Search query",
+                  "disabled": false
+                },
+                {
+                  "key": "most_recent",
+                  "value": "",
+                  "description": "(Optional) Show most recent videos first",
+                  "disabled": true
+                },
+                {
+                  "key": "videos_live",
+                  "value": "",
+                  "description": "(Optional) Filter for live videos only",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "",
+                  "description": "(Optional) Comma-separated list of keys to include. Supports dot notation.",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves Facebook Videos based on a search query. Use end_cursor for pagination."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Meta Ads Library Search",
+      "item": [
+        {
+          "name": "Get Supported Countries",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_supported_countries",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_supported_countries"
+              ]
+            },
+            "description": "Retrieves a list of all available country codes for filtering ads by country."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search Ads Pages (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_ads_pages",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_ads_pages"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "for kids",
+                  "description": "(Optional) Search keyword for ads",
+                  "disabled": true
+                },
+                {
+                  "key": "ad_page_id",
+                  "value": "",
+                  "description": "(Optional) Facebook AD Page ID. Used only if query is not provided.",
+                  "disabled": true
+                },
+                {
+                  "key": "country",
+                  "value": "",
+                  "description": "(Optional) ISO country code or ALL",
+                  "disabled": true
+                },
+                {
+                  "key": "activeStatus",
+                  "value": "",
+                  "description": "(Optional) Filter by ad status",
+                  "disabled": true
+                },
+                {
+                  "key": "after_time",
+                  "value": "",
+                  "description": "(Optional) Filter ads after this date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "before_time",
+                  "value": "",
+                  "description": "(Optional) Filter ads before this date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_data",
+                  "value": "",
+                  "description": "(Optional) Sort: impressions (high to low) or recent (most recent)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves ad pages based on a search query, returning up to 26 ads per request."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search Ads Pages (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_ads_pages",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_ads_pages"
+              ]
+            },
+            "description": "Same as GET but uses POST body to avoid 414 URI Too Long errors with long pagination cursors.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"\",\n  \"ad_page_id\": \"1633779800049051\",\n  \"country\": \"ALL\",\n  \"activeStatus\": \"ALL\",\n  \"end_cursor\": \"\",\n  \"after_time\": \"\",\n  \"before_time\": \"\",\n  \"sort_data\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Page Ad Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_page_ad_details?page_id=144939265372419",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_page_ad_details"
+              ],
+              "query": [
+                {
+                  "key": "page_id",
+                  "value": "144939265372419",
+                  "description": "(Required) Facebook Page ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Retrieves detailed information about a specific Facebook page based on page ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Archive Ad Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_archive_ad_details?ad_archive_id=870923648247659",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_archive_ad_details"
+              ],
+              "query": [
+                {
+                  "key": "ad_archive_id",
+                  "value": "870923648247659",
+                  "description": "(Required) Ad Archive ID",
+                  "disabled": false
+                },
+                {
+                  "key": "page_id",
+                  "value": "144939265372419",
+                  "description": "(Optional) Facebook Page ID",
+                  "disabled": true
+                },
+                {
+                  "key": "country",
+                  "value": "",
+                  "description": "(Optional) ISO country code or ALL",
+                  "disabled": true
+                },
+                {
+                  "key": "is_ad_non_political",
+                  "value": "true",
+                  "description": "(Optional) Filter non-political ads",
+                  "disabled": true
+                },
+                {
+                  "key": "is_ad_not_aaa_eligible",
+                  "value": "false",
+                  "description": "(Optional) Filter AAA eligibility",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve detailed information about a specific archived ad based on its archive ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch Search Ads Keywords",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/fetch_search_ads_keywords?query=cars",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fetch_search_ads_keywords"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "cars",
+                  "description": "(Required) Search keyword",
+                  "disabled": false
+                },
+                {
+                  "key": "country",
+                  "value": "",
+                  "description": "(Optional) ISO country code or ALL",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Search for ads based on a keyword. Filter by country, status, and ad type."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Facebook Marketplace Listings",
+      "item": [
+        {
+          "name": "Get Marketplace Search Results",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_facebook_marketplace_items_listing",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_facebook_marketplace_items_listing"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "cars",
+                  "description": "(Optional) Search term",
+                  "disabled": true
+                },
+                {
+                  "key": "category_url",
+                  "value": "",
+                  "description": "(Optional) Category URL (https://www.facebook.com/marketplace/category/slug)",
+                  "disabled": true
+                },
+                {
+                  "key": "commerce_search_sort_by",
+                  "value": "",
+                  "description": "(Optional) Sort order",
+                  "disabled": true
+                },
+                {
+                  "key": "commerce_search_and_rp_condition",
+                  "value": "",
+                  "description": "(Optional) Item condition. Comma-separated: new, used_like_new, used_good, used_fair",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_location_latitude",
+                  "value": "40.7142",
+                  "description": "(Optional) Latitude",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_location_longitude",
+                  "value": "-74.0064",
+                  "description": "(Optional) Longitude",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_price_lower_bound",
+                  "value": "0",
+                  "description": "(Optional) Min price",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_price_upper_bound",
+                  "value": "214748364700",
+                  "description": "(Optional) Max price",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_radius_km",
+                  "value": "65",
+                  "description": "(Optional) Radius in km",
+                  "disabled": true
+                },
+                {
+                  "key": "proxy_country",
+                  "value": "",
+                  "description": "(Optional) Proxy country",
+                  "disabled": true
+                },
+                {
+                  "key": "posted_today",
+                  "value": "",
+                  "description": "(Optional) If true, limits to items posted today",
+                  "disabled": true
+                },
+                {
+                  "key": "timezone",
+                  "value": "UTC",
+                  "description": "(Optional) Timezone",
+                  "disabled": true
+                },
+                {
+                  "key": "after_time",
+                  "value": "",
+                  "description": "(Optional) Filter after date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "before_time",
+                  "value": "",
+                  "description": "(Optional) Filter before date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "exact_match",
+                  "value": "",
+                  "description": "(Optional) Exact match search",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "",
+                  "description": "(Optional) Comma-separated keys to filter response",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieves Facebook Marketplace items with filters for Location, Price, Date, Radius, Category, Sort Order, and more."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Marketplace Listing Item Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_listing_item_details",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_listing_item_details"
+              ],
+              "query": [
+                {
+                  "key": "listing_id",
+                  "value": "",
+                  "description": "(Required) Marketplace Listing ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Fetches detailed listing info: URL, photo, price, location, status, seller, delivery, title, comparable pricing."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Seller Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_seller_details?seller_id=100000821500068",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_seller_details"
+              ],
+              "query": [
+                {
+                  "key": "seller_id",
+                  "value": "100000821500068",
+                  "description": "(Required) Seller ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Retrieve seller profile, ratings, reviews, and badges."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Marketplace Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/get_marketplace_categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "get_marketplace_categories"
+              ]
+            },
+            "description": "Retrieves marketplace category details with seo_url and category id values."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Marketplace City Coordinates",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/find_city_coordinates?city=new york",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "find_city_coordinates"
+              ],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "new york",
+                  "description": "(Required) City name",
+                  "disabled": false
+                },
+                {
+                  "key": "country",
+                  "value": "",
+                  "description": "(Optional) Country name or code",
+                  "disabled": true
+                },
+                {
+                  "key": "exactly_one",
+                  "value": "true",
+                  "description": "(Optional) Return exactly one result",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve city coordinates (name, latitude, longitude) for use as location filters."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Marketplace Vehicles Search Results",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facebook_marketplace_vehicles_listings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "facebook_marketplace_vehicles_listings"
+              ],
+              "query": [
+                {
+                  "key": "sort_by",
+                  "value": "",
+                  "description": "(Optional) Sort order",
+                  "disabled": true
+                },
+                {
+                  "key": "after_time",
+                  "value": "",
+                  "description": "(Optional) Filter after date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "before_time",
+                  "value": "",
+                  "description": "(Optional) Filter before date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_location_latitude",
+                  "value": "40.7142",
+                  "description": "(Optional) Latitude",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_location_longitude",
+                  "value": "-74.0064",
+                  "description": "(Optional) Longitude",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_price_lower_bound",
+                  "value": "0",
+                  "description": "(Optional) Min price",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_price_upper_bound",
+                  "value": "214748364700",
+                  "description": "(Optional) Max price",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_radius_km",
+                  "value": "65",
+                  "description": "(Optional) Radius in km",
+                  "disabled": true
+                },
+                {
+                  "key": "is_c2c_listing_only",
+                  "value": "",
+                  "description": "(Optional) Individual sellers only",
+                  "disabled": true
+                },
+                {
+                  "key": "proxy_country",
+                  "value": "",
+                  "description": "(Optional) Proxy country",
+                  "disabled": true
+                },
+                {
+                  "key": "exact_match",
+                  "value": "",
+                  "description": "(Optional) Exact match search",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Fetch vehicle listings with filters for location, price, sorting, mileage, year, and more."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Marketplace Rental Property Search Results",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facebook_marketplace_rentals_listings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "facebook_marketplace_rentals_listings"
+              ],
+              "query": [
+                {
+                  "key": "sort_by",
+                  "value": "",
+                  "description": "(Optional) Sort order",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_location_latitude",
+                  "value": "40.7142",
+                  "description": "(Optional) Latitude",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_location_longitude",
+                  "value": "-74.0064",
+                  "description": "(Optional) Longitude",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_price_lower_bound",
+                  "value": "0",
+                  "description": "(Optional) Min price",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_price_upper_bound",
+                  "value": "214748364700",
+                  "description": "(Optional) Max price",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_radius_km",
+                  "value": "65",
+                  "description": "(Optional) Radius in km",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_bedrooms_min",
+                  "value": "",
+                  "description": "(Optional) Min bedrooms",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_bedrooms_max",
+                  "value": "",
+                  "description": "(Optional) Max bedrooms",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_bathrooms_min",
+                  "value": "",
+                  "description": "(Optional) Min bathrooms",
+                  "disabled": true
+                },
+                {
+                  "key": "filter_bathrooms_max",
+                  "value": "",
+                  "description": "(Optional) Max bathrooms",
+                  "disabled": true
+                },
+                {
+                  "key": "is_c2c_listing_only",
+                  "value": "",
+                  "description": "(Optional) Individual sellers only",
+                  "disabled": true
+                },
+                {
+                  "key": "end_cursor",
+                  "value": "",
+                  "description": "(Optional) Pagination cursor",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Fetch rental property listings with filters for location, price, bedrooms, bathrooms, and more."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Facebook Download Media",
+      "item": [
+        {
+          "name": "Download Media",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-rapidapi-host",
+                "value": "{{rapidapi_host}}"
+              },
+              {
+                "key": "x-rapidapi-key",
+                "value": "{{rapidapi_key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/download_media",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "download_media"
+              ],
+              "query": [
+                {
+                  "key": "url",
+                  "value": "",
+                  "description": "(Required) Facebook media URL",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Download media (images, videos, audio) from Facebook URLs."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

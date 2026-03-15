@@ -5,7 +5,8 @@
 [![RapidAPI](https://img.shields.io/badge/RapidAPI-Subscribe-blue?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC1SURBVChTY/hPADCgC2zatOk/kPkfxgYBkBiKRjBgYmL6D1IBooFsFBcjA5AmEI0OQGxkNYQBSBMhNVCN/0E0XhqZmJj+gzQiC8I0EaURpglZI0gTSBxZIz6NME3oGnFpxKUJphGXRnyaYBqxacSnCaYRXSM+TegasTTi04SuEUsj2ZpgGrE04tOE0IhFIyFNQDYDSCOIjQ5AYhgA3d4gDCSD+ExMTDAaRIPkYXwGBgYAd3UrljKFVPIAAAAASUVORK5CYII=)](https://rapidapi.com/oussemaf/api/facebook-scraper-api4)
 [![Endpoints](https://img.shields.io/badge/Endpoints-35-green?style=for-the-badge)]()
 [![Version](https://img.shields.io/badge/Version-v1-orange?style=for-the-badge)]()
-[![Live Docs](https://img.shields.io/badge/Live_Docs-Swagger_UI-85EA2D?style=for-the-badge&logo=swagger)](https://YOUR_USERNAME.github.io/facebook-scraper-api-docs/)
+[![Live Docs](https://img.shields.io/badge/Live_Docs-Swagger_UI-85EA2D?style=for-the-badge&logo=swagger)](https://minima-partners.github.io/facebook-scraper-api-docs/)
+[![Postman](https://img.shields.io/badge/Postman-Docs-FF6C37?style=for-the-badge&logo=postman)](https://documenter.getpostman.com/view/7191741/2sBXigMZ5Y)
 
 ---
 
@@ -29,7 +30,7 @@
 
 ### Browse Interactive Docs
 Visit the **live Swagger UI** page:
-> `https://YOUR_USERNAME.github.io/facebook-scraper-api-docs/`
+> `https://minima-partners.github.io/facebook-scraper-api-docs/`
 
 *(Replace `YOUR_USERNAME` with your GitHub username after enabling GitHub Pages)*
 
@@ -144,6 +145,8 @@ Pass `end_cursor` as a query parameter in the next request to fetch more results
 ## 🔗 Links
 
 - **Subscribe:** [RapidAPI - Facebook Scraper API](https://rapidapi.com/oussemaf/api/facebook-scraper-api4)
+- **Postman Docs:** [documenter.getpostman.com](https://documenter.getpostman.com/view/7191741/2sBXigMZ5Y)
+- **Swagger UI:** [minima-partners.github.io](https://minima-partners.github.io/facebook-scraper-api-docs/)
 - **Pricing:** Freemium (free tier available)
 
 ---
@@ -153,7 +156,7 @@ Pass `end_cursor` as a query parameter in the next request to fetch more results
 1. Go to your repo **Settings** → **Pages**
 2. Source: **Deploy from a branch**
 3. Branch: **main** / root
-4. Save — your docs will be live at `https://YOUR_USERNAME.github.io/facebook-scraper-api-docs/`
+4. Save — your docs will be live at `https://minima-partners.github.io/facebook-scraper-api-docs/`
 
 ---
 
